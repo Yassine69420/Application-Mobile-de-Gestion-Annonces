@@ -1,0 +1,37 @@
+1. Base de données SQLite (SQLiteOpenHelper)
+
+Crée une classe DatabaseHelper qui :
+
+    Crée les tables Annonce et Vendeur ;
+
+    Gère les opérations CRUD (Create, Read, Update, Delete) ;
+
+    Authentifie les vendeurs via le login et motDePasse.
+
+2. Écran d'accueil
+
+    Affiche toutes les annonces dans une RecyclerView ;
+
+    Permet à l'utilisateur de rechercher des annonces via un champ de recherche.
+
+3. Écran de connexion/inscription vendeur
+
+    Authentification avec login et motDePasse ;
+
+    Page d’inscription si pas encore inscrit.
+
+4. Espace vendeur
+
+    Après connexion, un vendeur peut :
+
+        Ajouter une annonce (formulaire de saisie) ;
+
+        Modifier ou supprimer ses propres annonces.
+
+5. Détails d’une annonce
+
+    En cliquant sur une annonce, un écran détail s’ouvre :
+
+        Montre titre, description, prix, date, catégorie ;
+
+        Et les infos de contact du vendeur : bouton appel, email, ou SMS.
