@@ -1,68 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@android:color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="24dp">
 
-        <TextView android:id="@+id/titreTextView"
+        <!-- Title Section -->
+        <TextView
+            android:id="@+id/titreTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
             android:textSize="24sp"
+            android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:lineSpacingMultiplier="1.2"
+            android:layout_marginBottom="8dp"/>
 
-        <TextView android:id="@+id/prixTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#009688"
-            android:textSize="18sp"
-            android:layout_marginTop="4dp"/>
-
-        <TextView android:id="@+id/categorieTextView"
+        <!-- Price Chip -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/prixTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="italic"/>
+            android:text="Prix"
+            android:textSize="16sp"
+            app:chipBackgroundColor="#E3F2FD"
+            app:chipCornerRadius="16dp"
+            app:chipStartPadding="12dp"
+            app:chipEndPadding="12dp"
+            android:layout_marginBottom="16dp" />
 
-        <TextView android:id="@+id/descriptionTextView"
+        <!-- Category Badge -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/categorieTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Catégorie"
+            app:chipBackgroundColor="#E8F5E9"
+            app:chipCornerRadius="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Description Card -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:textSize="16sp"/>
+            app:cardElevation="1dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginBottom="16dp">
 
-        <TextView android:id="@+id/dateTextView"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textColor="#616161"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/descriptionTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="16sp"
+                    android:textColor="#212121"
+                    android:lineSpacingMultiplier="1.4"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Date Section -->
+        <TextView
+            android:id="@+id/dateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"/>
+            android:text=""
+            android:textSize="12sp"
+            android:textColor="#757575"
+            android:drawableStart="@drawable/ic_baseline_date_range_24"
+            android:drawablePadding="4dp"
+            android:layout_marginBottom="24dp"/>
 
-        <View android:layout_height="1dp" android:layout_width="match_parent"
-            android:background="#CCC" android:layout_marginVertical="12dp"/>
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="16dp"/>
 
-        <TextView android:id="@+id/vendeurTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vendeur :"
-            android:textStyle="bold"/>
-
-        <Button android:id="@+id/appelBtn"
+        <!-- Seller Section -->
+        <TextView
+            android:id="@+id/vendeurTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Appeler"/>
+            android:text="Vendeur"
+            android:textSize="16sp"
+            android:textColor="#424242"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
 
-        <Button android:id="@+id/smsBtn"
+        <!-- Action Buttons -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Envoyer un SMS"
-            android:layout_marginTop="4dp"/>
+            android:orientation="vertical"
+            android:layout_marginTop="8dp">
 
-        <Button android:id="@+id/emailBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Envoyer un Email"
-            android:layout_marginTop="4dp"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/appelBtn"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Appeler"
+                android:textAllCaps="false"
+                app:icon="@drawable/ic_baseline_call_24"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp"
+                app:iconTint="@color/primary"
+                android:textColor="@color/primary"
+                android:layout_marginBottom="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/smsBtn"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Envoyer un SMS"
+                android:textAllCaps="false"
+                app:icon="@drawable/ic_baseline_sms_24"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp"
+                app:iconTint="@color/primary"
+                android:textColor="@color/primary"
+                android:layout_marginBottom="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/emailBtn"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Envoyer un Email"
+                android:textAllCaps="false"
+                app:icon="@drawable/ic_baseline_email_24"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp"
+                app:iconTint="@color/primary"
+                android:textColor="@color/primary"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/editBtn"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:text="Modifier"
+                    android:textAllCaps="false"
+                    app:icon="@drawable/ic_baseline_edit_24"
+                    app:iconGravity="textStart"
+                    app:iconPadding="8dp"
+                    android:visibility="gone"
+                    android:layout_weight="1"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/deleteBtn"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:text="Supprimer"
+                    android:textAllCaps="false"
+                    app:icon="@drawable/ic_baseline_delete_24"
+                    app:iconGravity="textStart"
+                    app:iconPadding="8dp"
+                    android:visibility="gone"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

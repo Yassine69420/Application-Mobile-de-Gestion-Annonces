@@ -6,50 +6,53 @@
     android:orientation="vertical"
     android:padding="24dp"
     android:gravity="center"
-    android:background="#F3F4F6">
+    >
 
     <!-- Logo Image -->
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_marginBottom="32dp"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/_data_prod_img_lavagna_post_it_4_g2424_pintdecor_png_r_950_700"
-        android:contentDescription="@string/app_logo" />
+        android:layout_width="294dp"
+        android:layout_height="253dp"
+        android:layout_marginBottom="3dp"
+        android:contentDescription="@string/app_logo"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/_data_prod_img_lavagna_post_it_4_g2424_pintdecor_png_r_950_700" />
 
-    <!-- Title for the app -->
+    <!-- App Title -->
     <TextView
         android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
         android:text="@string/app_title"
-        android:textColor="#333333"
+        android:textColor="?attr/colorOnBackground"
         android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="40dp" />
+        android:textStyle="bold" />
+
 
     <!-- Login Button -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="@string/login"
         android:textSize="16sp"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/rounded_button_green"
-        android:layout_marginBottom="16dp"
-        android:padding="16dp" />
+        android:padding="16dp"
+        android:textColor="?attr/colorOnPrimary"
+        android:backgroundTint="?attr/colorPrimary" />
 
     <!-- Register Button -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/register"
         android:textSize="16sp"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/rounded_button_blue"
-        android:padding="16dp" />
+        android:padding="16dp"
+        android:textColor="?attr/colorOnSecondary"
+        android:backgroundTint="?attr/colorSecondary" />
 
 </LinearLayout>

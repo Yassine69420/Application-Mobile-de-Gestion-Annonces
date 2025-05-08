@@ -1,4 +1,4 @@
-package com.example.gestionannonce;
+package com.example.gestionannonce.UI;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gestionannonce.Database.DatabaseHelper;
 import com.example.gestionannonce.Models.Vendeur;
+import com.example.gestionannonce.R;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -21,6 +22,17 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // 🔒 Check if user is already logged in
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE); // Use the same name across all activities
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+
+        if (isLoggedIn) {
+            startActivity(new Intent(LoginActivity.this, AccueilActivity.class)); // Skip login and go to home screen
+            finish();
+            return;
+        }
+
         setContentView(R.layout.activity_login);
 
         inputLogin = findViewById(R.id.inputLogin);
@@ -32,15 +44,15 @@ public class LoginActivity extends AppCompatActivity {
             String login = inputLogin.getText().toString().trim();
             String password = inputPassword.getText().toString().trim();
 
+            // Check the login credentials
             Vendeur vendeur = dbHelper.loginVendeur(login, password);
             if (vendeur != null) {
-                // Save the vendeur_id in SharedPreferences
-                SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt("vendeur_id", vendeur.id);  // Save vendeur id
-                editor.apply();  // Apply changes to SharedPreferences
+                editor.putBoolean("isLoggedIn", true);
+                editor.putInt("userId", vendeur.id);
+                editor.apply();
 
-                // Navigate to AccueilActivity
+                // Navigate to AccueilActivity (Home screen)
                 Intent intent = new Intent(LoginActivity.this, AccueilActivity.class);
                 startActivity(intent);
                 finish();

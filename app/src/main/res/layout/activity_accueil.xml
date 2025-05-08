@@ -1,40 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
+    <!-- Main content layout -->
     <LinearLayout
         android:id="@+id/contentLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnLogout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <EditText
-            android:id="@+id/searchInput"
+        <!-- Search Input Field -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Rechercher une annonce"
-            android:drawableLeft="@android:drawable/ic_menu_search"
-            android:padding="10dp"/>
+            app:boxStrokeColor="?attr/colorPrimary"
+            app:hintTextAppearance="@style/TextAppearance.Material3.BodyLarge"
+            android:layout_marginBottom="16dp"
+            android:hint="Rechercher une annonce">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:inputType="text"
+                android:textColor="?attr/colorOnBackground"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:padding="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- RecyclerView for displaying annonces -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewAnnonces"
+            android:id="@+id/annoncesRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:layout_marginTop="8dp"/>
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:contentDescription="List of annonces"/>
     </LinearLayout>
+
+    <!-- Logout Button -->
+
+    <!-- FloatingActionButton for adding an announcement -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Se déconnecter"
+        app:backgroundTint="?attr/colorError"
+        app:layout_constraintBottom_toTopOf="@id/btnAddAnnonce"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAddAnnonce"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
-        android:contentDescription="Ajouter"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Ajouter une annonce"
+        android:elevation="6dp"
+        app:backgroundTint="?attr/colorPrimary"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

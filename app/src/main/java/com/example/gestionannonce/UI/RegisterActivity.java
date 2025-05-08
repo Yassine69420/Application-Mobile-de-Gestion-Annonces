@@ -1,4 +1,4 @@
-package com.example.gestionannonce;
+package com.example.gestionannonce.UI;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -8,6 +8,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gestionannonce.Database.DatabaseHelper;
+import com.example.gestionannonce.Models.Vendeur;
+import com.example.gestionannonce.R;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -43,8 +45,11 @@ public class RegisterActivity extends AppCompatActivity {
                 return;
             }
 
+            // Créer un objet Vendeur
+            Vendeur vendeur = new Vendeur(nom, email, telephone, login, password);
+
             // Insérer le vendeur dans la base de données
-            boolean registered = dbHelper.registerVendeur(nom, email, telephone, login, password);
+            boolean registered = dbHelper.registerVendeur(vendeur);
             if (registered) {
                 Toast.makeText(this, "Compte créé avec succès", Toast.LENGTH_SHORT).show();
                 finish(); // Retour à la page de login

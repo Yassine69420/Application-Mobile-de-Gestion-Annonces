@@ -1,45 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+   >
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/inputTitre"
+        <!-- Title Field -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Titre"/>
+            android:layout_marginBottom="16dp"
+            app:boxStrokeColor="?attr/colorPrimary"
+            app:hintTextAppearance="@style/TextAppearance.Material3.BodyLarge">
 
-        <EditText
-            android:id="@+id/inputDescription"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputTitre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Titre"
+                android:textSize="16sp"
+                android:textColor="?attr/colorOnBackground"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Description Field -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description"/>
+            android:layout_marginBottom="16dp"
+            app:boxStrokeColor="?attr/colorSecondary"
+            app:hintTextAppearance="@style/TextAppearance.Material3.BodyLarge">
 
-        <EditText
-            android:id="@+id/inputPrix"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description"
+                android:textSize="16sp"
+                android:textColor="?attr/colorOnBackground"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Price Field -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Prix"
-            android:inputType="numberDecimal"/>
+            android:layout_marginBottom="16dp"
+            app:boxStrokeColor="?attr/colorTertiary"
+            app:hintTextAppearance="@style/TextAppearance.Material3.BodyLarge">
 
-        <EditText
-            android:id="@+id/inputCategorie"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputPrix"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Prix"
+                android:inputType="numberDecimal"
+                android:textSize="16sp"
+                android:textColor="?attr/colorOnBackground" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Category Field -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Catégorie"/>
+            android:layout_marginBottom="16dp"
+            app:boxStrokeColor="?attr/colorSecondaryContainer"
+            app:hintTextAppearance="@style/TextAppearance.Material3.BodyLarge">
 
-        <Button
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputCategorie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Catégorie"
+                android:textSize="16sp"
+                android:textColor="?attr/colorOnBackground" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Add Advertisement Button -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAjouterAnnonce"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ajouter l'annonce"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:cornerRadius="8dp"
+            app:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary" />
+
     </LinearLayout>
 </ScrollView>
