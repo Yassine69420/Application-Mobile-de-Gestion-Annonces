@@ -28,7 +28,6 @@ public interface AnnonceDao {
     @Query("DELETE FROM Annonce WHERE id = :id")
     int deleteAnnonce(int id);
 
-    // New method to get Annonce by ID
     @Query("SELECT * FROM Annonce WHERE id = :id")
     Annonce getAnnonceById(int id);
 }

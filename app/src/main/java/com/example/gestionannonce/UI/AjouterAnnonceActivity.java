@@ -30,9 +30,9 @@ public class AjouterAnnonceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // ✅ Load the same SharedPreferences as in LoginActivity
+
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-        vendeurId = sharedPreferences.getInt("userId", -1); // Use the correct key: "userId"
+        vendeurId = sharedPreferences.getInt("userId", -1);
 
         if (vendeurId == -1) {
             Toast.makeText(this, "Utilisateur non connecté, veuillez vous connecter.", Toast.LENGTH_SHORT).show();

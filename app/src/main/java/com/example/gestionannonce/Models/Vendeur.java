@@ -26,7 +26,7 @@ public class Vendeur {
     @ColumnInfo(name = "motDePasse")
     public String motDePasse;
 
-    // Room will ignore this constructor
+
     @Ignore
     public Vendeur(String nom, String email, String telephone, String login, String motDePasse) {
         this.nom = nom;
@@ -36,7 +36,6 @@ public class Vendeur {
         this.motDePasse = motDePasse;
     }
 
-    // Room will use this no-arg constructor
     public Vendeur() {
     }
 }

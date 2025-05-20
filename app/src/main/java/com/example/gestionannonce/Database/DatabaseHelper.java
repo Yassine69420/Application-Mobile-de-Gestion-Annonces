@@ -55,8 +55,5 @@ public class DatabaseHelper {
     public List < Annonce > searchAnnonces(String keyword) {
         return db.annonceDao().searchAnnonces(keyword);
     }
-    // New method to get Annonce by ID
-    public Annonce getAnnonceById(int id) {
-        return db.annonceDao().getAnnonceById(id);
-    }
+
 }

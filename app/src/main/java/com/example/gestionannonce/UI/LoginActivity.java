@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // 🔒 Check if user is already logged in
+        // Check if user is already logged in
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE); // Use the same name across all activities
         boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
 
@@ -52,7 +52,6 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putInt("userId", vendeur.id);
                 editor.apply();
 
-                // Navigate to AccueilActivity (Home screen)
                 Intent intent = new Intent(LoginActivity.this, AccueilActivity.class);
                 startActivity(intent);
                 finish();

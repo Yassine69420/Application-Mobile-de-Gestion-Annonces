@@ -44,7 +44,6 @@ public class AccueilActivity extends AppCompatActivity {
         // RecyclerView Setup
         annoncesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         annonceAdapter = new AnnonceAdapter(this, annonces, annonce -> {
-            // On item click logic
             Intent intent = new Intent(AccueilActivity.this, AnnonceDetailActivity.class);
             intent.putExtra("annonce_id", annonce.id);
             startActivity(intent);
@@ -75,14 +74,14 @@ public class AccueilActivity extends AppCompatActivity {
                 Intent intent = new Intent(AccueilActivity.this, AjouterAnnonceActivity.class);
                 startActivity(intent);
             } else {
-                // Optionally redirect to login screen
+
                 Intent intent = new Intent(AccueilActivity.this, MainActivity.class);
                 startActivity(intent);
-                finish(); // Optional: close AccueilActivity
+                finish();
             }
         });
 
-        // AccueilActivity.java (Logout flow)
+        // Logout button setup
         Button btnLogout = findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(v -> {
             // Clear session data
@@ -95,7 +94,7 @@ public class AccueilActivity extends AppCompatActivity {
             // Redirect to MainActivity
             Intent logoutIntent = new Intent(AccueilActivity.this, MainActivity.class);
             startActivity(logoutIntent);
-            finish(); // Optionally finish the current activity to prevent back navigation
+            finish();
         });
 
 
@@ -104,7 +103,6 @@ public class AccueilActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Rafraîchir la liste depuis la base de données
         annonces = dbHelper.getAllAnnonces();
         annonceAdapter.updateList(annonces);
     }
